@@ -1,0 +1,34 @@
+<!-- Therapist Column Header-->
+<h2>
+  <!-- <a href="edit-therapists"> -->
+   Therapists
+  <!-- </a> -->
+</h2>
+
+<!-- Therapist Items-->
+<ul class="therapists-col">
+  <li *ngFor="let therapist of therapists"
+  [class.selected]="therapist === selectedTherapist"
+  (click)="onSelect(therapist)">
+    <span>{{therapist.name}}</span>
+  </li>
+</ul>
+
+
+
+
+
+
+
+<!-- <h2>{{therapist.name}} Details</h2>
+<div>
+    <label>Name:
+        <input [(ngModel)]="therapist.name" placeholder="Name">
+    </label>
+</div>
+
+<div>
+    <label>Sex:
+        <input [(ngModel)]="therapist.sex" placeholder="M or F">
+    </label>
+</div> -->

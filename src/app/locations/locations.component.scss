@@ -1,0 +1,32 @@
+.locations-col {
+    margin: 0 0 1em 0;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+  }
+  .locations-col li {
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .5em;
+    margin-left: 0px;
+    height: 25px ;
+    border-radius: 4px;
+    border: 3px solid #EEE;
+    text-align: center;
+    width: 200px;
+    padding-top: 10px;
+  }
+  .locations-col li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .locations-col li.selected {
+    background-color: #CFD8DC;
+    border: 3px solid blue;
+    color: white;
+  }
+  .locations-col li.selected:hover {
+    background-color: #BBD8DC;
+    color: white;
+  }
