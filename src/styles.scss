@@ -19,6 +19,10 @@ body, input[type="text"], button {
   font-family: Cambria, Georgia, serif;
 }
 
+.required::after {
+  content: "*";
+  color: #cf0303;
+}
 
 /* everywhere else */
 * {

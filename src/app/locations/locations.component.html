@@ -1,15 +1,11 @@
 <!-- Locations Header-->
-<h2>
-    <!-- <a href="edit-locations"> -->
-     Locations
-    <!-- </a> -->
-</h2>
+<h2 class="required">Locations</h2>
   
   <!-- Location Items-->
   <ul class="locations-col">
     <li *ngFor="let location of locations"
-    [class.selected]="location === selectedLocation"
+    [class.selected]="location.name === selectedLocation"
     (click)="onSelect(location)">
-      <span>{{location}}</span>
+      <span>{{location===selectedLocation && location.input ? location.name+" "+locationNumber : location.name}}</span>
     </li>
   </ul>

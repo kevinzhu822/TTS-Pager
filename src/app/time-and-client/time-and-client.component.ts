@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubmissionService } from '../submission.service';
 
 @Component({
   selector: 'app-time-and-client',
@@ -6,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./time-and-client.component.scss']
 })
 export class TimeAndClientComponent implements OnInit {
-  inputTime: string;
-  inputClientName: string;
+  public inputTime: string;
+  public inputClientName: string;
   
-  constructor() { }
+  constructor(private submissionService: SubmissionService) { }
 
   ngOnInit() {
+  }
+
+  timeChange() {
+    this.submissionService.setField("time", this.inputTime, false, null);
+  }
+
+  clientChange() {
+    if (this.inputClientName) {
+      this.submissionService.setField("client", this.inputClientName, false, null);
+    }
   }
 
 }

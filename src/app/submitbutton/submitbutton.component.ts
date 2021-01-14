@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubmissionService } from '../submission.service';
 
 @Component({
   selector: 'app-submitbutton',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private submissionService: SubmissionService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.submissionService.masterSubmit();
   }
 
 }

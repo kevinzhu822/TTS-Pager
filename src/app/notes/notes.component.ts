@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NOTES, NoteEnum } from '../mock-notes';
+import { NOTES } from '../mock-notes';
 import { Note } from '../note';
+import { SubmissionService } from '../submission.service';
 
 @Component({
   selector: 'app-notes',
@@ -9,23 +10,31 @@ import { Note } from '../note';
 })
 export class NotesComponent implements OnInit {
   notes = NOTES;
-  noteEnum = NoteEnum;
-  selectedNotes = new Array(7);
-  pregnantNotes: string;
-  otherNotes: string;
+  selectedNotes = {};
+  keys: string[];
 
-  constructor() { }
+  constructor(private submissionService: SubmissionService) { }
 
   ngOnInit() {
   }
 
   onSelect(note: Note) {
-    if (this.selectedNotes[NoteEnum[note.name]] == 1) {
-      this.selectedNotes[NoteEnum[note.name]] = 0;
+    this.keys = Object.keys(this.selectedNotes);
+    if (this.keys.includes(note.name)) {
+      delete this.selectedNotes[note.name];
+      // remove from submissionService as well
+      this.submissionService.removeField(note.name);
+
     } else {
-      this.selectedNotes[NoteEnum[note.name]] = 1;
+      if (note.input) {
+        // get user input
+        this.selectedNotes[note.name] = "Some user input"; // TODO: change this
+        this.submissionService.setField("Note-"+note.name, note.name, true, "user input note"); // change this
+      } else {
+        this.selectedNotes[note.name] = 1;
+        this.submissionService.setField("Note-"+note.name, note.name, false, null);
+      }
     }
-    console.log(this.selectedNotes);
   }
 
 }

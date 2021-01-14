@@ -12,6 +12,8 @@ import { NotesComponent } from './notes/notes.component';
 import { SubmitButtonComponent } from './submitbutton/submitbutton.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { InputModalComponent } from './input-modal/input-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,15 +22,18 @@ import {MatButtonModule} from '@angular/material/button';
     LocationsComponent,
     TimeAndClientComponent,
     NotesComponent,
-    SubmitButtonComponent
+    SubmitButtonComponent,
+    InputModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    NgbModule
   ],
+  entryComponents: [InputModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

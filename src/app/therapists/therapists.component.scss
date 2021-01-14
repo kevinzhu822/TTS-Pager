@@ -11,22 +11,24 @@
     margin-left: 0px;
     height: 25px ;
     border-radius: 4px;
-    border: 3px solid #EEE;
+    border: 5px solid #EEE;
     text-align: center;
     width: 90px;
     padding-top: 10px;
   }
   .therapists-col li:hover {
-    color: #607D8B;
+    color: #0c7d9f;
     background-color: #DDD;
+    border: 5px solid #DDD;
     left: .1em;
   }
   .therapists-col li.selected {
-    background-color: #CFD8DC;
-    border: 3px solid blue;
-    color: white;
+    background-color: #EEE;
+    border: 5px solid #b79906;
+    color: black;
   }
   .therapists-col li.selected:hover {
-    background-color: #BBD8DC;
-    color: white;
+    background-color: #DDD;
+    border: 5px solid #b79906;
+    color: #0c7d9f;
   }

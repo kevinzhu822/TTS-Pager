@@ -7,7 +7,7 @@
 
 <ul class="notes-col">
     <li *ngFor="let note of notes"
-    [class.selected]="selectedNotes[noteEnum[note.name]]==1"
+    [class.selected]="selectedNotes[note.name]"
     (click)="onSelect(note)">
       <span>{{note.name}}</span>
     </li>
