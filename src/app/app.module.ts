@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { NoteDialogComponent } from './notes/note-dialog/note-dialog.component';
 import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/confirmation-dialog.component';
+import { AlertDialogComponent } from './submitbutton/alert-dialog/alert-dialog.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/
     LocationDialogComponent,
     NoteDialogComponent,
     ConfirmationDialogComponent,
+    AlertDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/
     MatInputModule,
     ReactiveFormsModule
   ],
-  entryComponents: [LocationDialogComponent, NoteDialogComponent, ConfirmationDialogComponent],
+  entryComponents: [LocationDialogComponent, NoteDialogComponent, ConfirmationDialogComponent, AlertDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
