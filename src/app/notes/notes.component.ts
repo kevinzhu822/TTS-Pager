@@ -49,8 +49,10 @@ export class NotesComponent implements OnInit {
     const dialogRef = this.dialog.open(NoteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data => {
-      this.selectedNotes[name] = data.event;
-      this.submissionService.setField("Note-"+name, name, true, data.event);
+      if (data != null) {
+        this.selectedNotes[name] = data.event;
+        this.submissionService.setField("Note-"+name, name, true, data.event);
+      }
     });
   }
 }

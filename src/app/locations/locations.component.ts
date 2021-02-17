@@ -28,8 +28,11 @@ export class LocationsComponent implements OnInit {
     const dialogRef = this.dialog.open(LocationDialogComponent, dialogConfig);
     
     dialogRef.afterClosed().subscribe(data => {
-      this.locationNumber = data.event;
-      this.submissionService.setField("location", this.selectedLocation, true, this.locationNumber);
+      if (data != null) {
+        this.locationNumber = data.event;
+        this.selectedLocation = stationName;
+        this.submissionService.setField("location", this.selectedLocation, true, this.locationNumber);
+    }
     });
   }
 
@@ -44,6 +47,7 @@ export class LocationsComponent implements OnInit {
 
       if (location.input) {
         // open modal and get user input
+        this.selectedLocation = null;
         this.openModal(location.name);
       } else {
         this.submissionService.setField("location", this.selectedLocation, false, null);

@@ -22,6 +22,8 @@ export class TimeAndClientComponent implements OnInit {
   clientChange() {
     if (this.inputClientName) {
       this.submissionService.setField("client", this.inputClientName, false, null);
+    } else {
+      this.submissionService.removeField("client");
     }
   }
 

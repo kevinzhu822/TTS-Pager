@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/confirmation-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class SubmissionService {
   data = {};
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   /* sticks the following entry into "data":
     <<type: {"name": field_name, "hasInput": has_input, "inputData": input_data}>>
@@ -32,5 +34,18 @@ export class SubmissionService {
   public masterSubmit() {
     console.log(this.data);
     // opens a modal
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      data: this.data,
+    }
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
+    
+    dialogRef.afterClosed().subscribe(data => {
+      if (data != null) {
+        // send to other screen
+        console.log("submitted!");
+        return;
+      }
+    });
   }
 }

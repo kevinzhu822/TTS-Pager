@@ -1,0 +1,19 @@
+<div class="Dialog--wrapper">
+    <div class="Summary--title">Summary</div>
+    <ul class="Summary--list">
+        <li *ngFor="let data of presentableData">
+            <span class="Summary-item__label">{{data[0]}}: </span>
+            <span class="Summary--item__text">{{data[1]}}</span>
+        </li>
+    </ul>
+    <!-- <div class=Summary-note__divider>Notes</div> -->
+    <ul class="Summary--list">
+        <li *ngFor="let note of notesArray">
+            <span class="Summary--item__notes">*{{note}}*</span>
+        </li>
+    </ul>
+    <div class=Summary--buttons>
+        <button mat-raised-button (click)="onBack()" class="back-button" type="submit">Back</button>
+        <button mat-raised-button (click)="onConfirm()" class="confirm-button" type="submit">Confirm</button>
+    </div>
+</div>
