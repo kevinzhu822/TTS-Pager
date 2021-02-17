@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LOCATIONS } from '../mock-locations';
 import { Location } from '../location';
 import { SubmissionService } from '../submission.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {InputModalComponent} from '../input-modal/input-modal.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { LocationDialogComponent } from './location-dialog/location-dialog.component';
 
 @Component({
   selector: 'app-locations',
@@ -13,31 +13,40 @@ import {InputModalComponent} from '../input-modal/input-modal.component';
 export class LocationsComponent implements OnInit {
   locations = LOCATIONS;
   selectedLocation: string;
-  locationNumber: number;
+  locationNumber: any;
 
-  constructor(private submissionService: SubmissionService, private modalService: NgbModal) { }
+  constructor(private submissionService: SubmissionService, private dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
-  openModal() {
-    this.modalService.open(InputModalComponent);
+  openModal(stationName) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      stationName: stationName,
+    }
+    const dialogRef = this.dialog.open(LocationDialogComponent, dialogConfig);
+    
+    dialogRef.afterClosed().subscribe(data => {
+      this.locationNumber = data.event;
+      this.submissionService.setField("location", this.selectedLocation, true, this.locationNumber);
+    });
   }
 
   onSelect(location: Location): void {
+    this.locationNumber = null;
+
     if (this.selectedLocation != null && this.selectedLocation == location.name ) {
       this.selectedLocation = null;
-      this.locationNumber = null;
       this.submissionService.removeField("location");
     } else {
       this.selectedLocation = location.name;
-      // this.openModal();
 
       if (location.input) {
         // open modal and get user input
-        this.submissionService.setField("location", this.selectedLocation, true, "1"); //change
+        this.openModal(location.name);
       } else {
-        this.submissionService.setField("location", this.selectedLocation, false, "");
+        this.submissionService.setField("location", this.selectedLocation, false, null);
       }
     }
   }

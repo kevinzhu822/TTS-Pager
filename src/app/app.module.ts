@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,9 +10,13 @@ import { TimeAndClientComponent } from './time-and-client/time-and-client.compon
 import { NotesComponent } from './notes/notes.component';
 import { SubmitButtonComponent } from './submitbutton/submitbutton.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import { InputModalComponent } from './input-modal/input-modal.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import  {MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LocationDialogComponent } from './locations/location-dialog/location-dialog.component';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { NoteDialogComponent } from './notes/note-dialog/note-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TimeAndClientComponent,
     NotesComponent,
     SubmitButtonComponent,
-    InputModalComponent
+    LocationDialogComponent,
+    NoteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +35,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    NgbModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
-  entryComponents: [InputModalComponent],
+  entryComponents: [LocationDialogComponent, NoteDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

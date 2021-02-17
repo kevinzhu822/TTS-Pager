@@ -6,6 +6,6 @@
     <li *ngFor="let location of locations"
     [class.selected]="location.name === selectedLocation"
     (click)="onSelect(location)">
-      <span>{{location===selectedLocation && location.input ? location.name+" "+locationNumber : location.name}}</span>
+      <span>{{location.name===selectedLocation && location.input && locationNumber ? location.name+" "+locationNumber : location.name}}</span>
     </li>
   </ul>
