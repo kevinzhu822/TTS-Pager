@@ -25,7 +25,7 @@ export class NotesComponent implements OnInit {
     if (this.keys.includes(note.name)) {
       delete this.selectedNotes[note.name];
       // remove from submissionService as well
-      this.submissionService.removeField(note.name);
+      this.submissionService.removeField("Note-"+note.name);
 
     } else {
       if (note.input) {

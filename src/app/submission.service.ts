@@ -31,5 +31,6 @@ export class SubmissionService {
 
   public masterSubmit() {
     console.log(this.data);
+    // opens a modal
   }
 }
