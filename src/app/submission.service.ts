@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AlertDialogComponent } from './submitbutton/alert-dialog/alert-dialog.component';
 import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/confirmation-dialog.component';
 

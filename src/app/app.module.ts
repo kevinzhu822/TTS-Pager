@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LocationDialogComponent } from './locations/location-dialog/location-dialog.component';
-import { MatFormFieldModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NoteDialogComponent } from './notes/note-dialog/note-dialog.component';
 import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/confirmation-dialog.component';
