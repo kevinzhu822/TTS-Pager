@@ -14,10 +14,11 @@ export class TimeAndClientComponent implements OnInit {
   constructor(private submissionService: SubmissionService) { }
   
   ngOnInit(): void {
-    this.currentTime = this.getTimeNow();
+    this.currentTime = this.getTimeNow(0);
   }
 
-  onSelectCurrentTime() {
+  onSelectCurrentTime(offset) {
+    this.currentTime = this.getTimeNow(offset);
     this.inputTime = this.currentTime;
     this.timeChange();
   }
@@ -27,10 +28,10 @@ export class TimeAndClientComponent implements OnInit {
     this.submissionService.setField("time", this.inputTime, false, null);
   }
 
-  getTimeNow() {
+  getTimeNow(offset) {
     var current = new Date();
     const hours = (current.getHours()%12).toString();
-    var minutes = current.getMinutes().toString();
+    var minutes = (current.getMinutes()+offset).toString();
     if (minutes.length == 1) {
       minutes = "0"+minutes;
     }

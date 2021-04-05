@@ -1,7 +1,9 @@
 <h2 class="required">Time</h2>
 <div class="input">
     <input [(ngModel)]="inputTime" placeholder="ex. 1:30 PM" (change)="timeChange()">
-    <button mat-raised-button (click)="onSelectCurrentTime()" class="button" type="submit">{{currentTime}}</button>
+    <button mat-raised-button (click)="onSelectCurrentTime(0)" class="button" type="submit">Now</button>
+    <button mat-raised-button (click)="onSelectCurrentTime(1)" class="button" type="submit">In 1 Minute</button>
+    <button mat-raised-button (click)="onSelectCurrentTime(5)" class="button" type="submit">In 5 Minutes</button>
 </div>
 
 
