@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { AlertDialogComponent } from './submitbutton/alert-dialog/alert-dialog.component';
 import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/confirmation-dialog.component';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/
 export class SubmissionService {
   data = {};
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   /* sticks the following entry into "data":
     <<type: {"name": field_name, "hasInput": has_input, "inputData": input_data}>>
@@ -52,7 +53,7 @@ export class SubmissionService {
       dialogRef.afterClosed().subscribe(data => {
         if (data != null) {
           // send to other screen
-          console.log("submitted!");
+          let snackBarRef = this.snackBar.open('Submitted Successfully', "Close", {duration: 10000,});
           return;
         }
       });

@@ -15,9 +15,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LocationDialogComponent } from './locations/location-dialog/location-dialog.component';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material';
 import { NoteDialogComponent } from './notes/note-dialog/note-dialog.component';
 import { ConfirmationDialogComponent } from './submitbutton/confirmation-dialog/confirmation-dialog.component';
 import { AlertDialogComponent } from './submitbutton/alert-dialog/alert-dialog.component';
+import { AdminComponent } from './admin/admin.component';
+import { TherapistViewComponent } from './therapistview/therapistview.component';
 
 
 @NgModule({
@@ -32,6 +35,8 @@ import { AlertDialogComponent } from './submitbutton/alert-dialog/alert-dialog.c
     NoteDialogComponent,
     ConfirmationDialogComponent,
     AlertDialogComponent,
+    AdminComponent,
+    TherapistViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { AlertDialogComponent } from './submitbutton/alert-dialog/alert-dialog.c
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   entryComponents: [LocationDialogComponent, NoteDialogComponent, ConfirmationDialogComponent, AlertDialogComponent],
   providers: [],
